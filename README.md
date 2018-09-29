@@ -1,7 +1,6 @@
 
-[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://github.com/zaixi/GouYong)
 [![Travis (.org)](https://img.shields.io/travis/zaixi/GouYong.svg)](https://github.com/zaixi/GouYong)
-
+[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://github.com/zaixi/GouYong)
 
 ## 这是一个Linux词典应用程序，目标够用就好！
 
@@ -23,10 +22,11 @@
 2. 托盘可以暂停取词，还可以切换离线，在线模式。
 3. 自动调整弹出窗口的位置，鼠标远离窗口一定范围时窗口自动关闭。
 4. 更改划词翻译触发机制为连按左ctrl两次。
-5. 增加连按右ctrl两次通过cht.sh查询并翻译。
-6. 增加翻译引擎选择,目前支持谷歌搜狗有道。
-7. 增加travis自动上传到pypi。
-8. 由python2改为python3
+5. 支持段落翻译。
+6. 增加连按右ctrl两次通过cht.sh查询并翻译。
+7. 增加翻译引擎选择,目前支持谷歌搜狗有道。
+8. 增加travis自动上传到pypi。
+9. 由python2改为python3。
 
 ### TODO:
 - [X] 顺畅自如的选词弹窗翻译;
