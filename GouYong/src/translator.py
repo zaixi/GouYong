@@ -30,15 +30,21 @@ class Translator(object):
         except:
             return text
 
+    def test(self):
+        texts = []
+        texts.append("makes control reaches end of non-void functionv")
+        texts.append("apple")
+        texts.append("translate")
+        texts.append("GPIO_DIRECTION_OUTPUT")
+        translator = self.translator
+        for who in self.translators:
+            self.set_translator(who.engine)
+            print("\n-----------------", self.translator.engine, "-------------------\n")
+            for text in texts:
+                result = self.translate(text)
+                print(result)
+
 if __name__ == '__main__':
     translator = Translator()
-    for who in ['google', 'sogou', 'youdao']:
-        translator.set_translator(who)
-        result = translator.translate("makes control reaches end of non-void functionv")
-        print(result)
-        result = translator.translate("apple")
-        print(result)
-        result = translator.translate("translate")
-        print(result)
-        result = translator.translate("GPIO_DIRECTION_OUTPUT")
-        print(result)
+    translator.test()
+

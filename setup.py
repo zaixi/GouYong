@@ -8,21 +8,7 @@ import os.path
 import sys
 import requests
 
-def md_to_rst(from_file, to_file):
-    """
-    将markdown格式转换为rst格式
-    @param from_file: {str} markdown文件的路径
-    @param to_file: {str} rst文件的路径
-    """
-    response = requests.post(
-        url='http://c.docverter.com/convert',
-        data={'to': 'rst', 'from': 'markdown'},
-        files={'input_files[]': open(from_file, 'rb')}
-    )
-
-    if response.ok:
-        with open(to_file, "wb") as f:
-            f.write(response.content)
+VERSION = '0.4.11'
 
 def get_data_files():
     data_files=[]
@@ -40,13 +26,12 @@ def get_file(*paths):
         pass
 
 def get_readme():
-    md_to_rst("README.md", "README.rst")
-    return get_file(os.path.dirname(__file__), 'README.rst')
+    return get_file(os.path.dirname(__file__), 'README.md')
 
 if __name__=="__main__":
     setup(
         name = "GouYong",
-        version = '0.4.6',
+        version = VERSION,
         packages = find_packages(),
         #include_package_data=True,
         install_requires = [
@@ -72,6 +57,7 @@ if __name__=="__main__":
         author_email = "liyujiangwork@gmail.com",
         description = "A translation software on  linux",
         long_description = get_readme(),
+        long_description_content_type="text/markdown",
         license = "GPL",
         url = "https://github.com/zaixi/GouYong",
         classifiers=[

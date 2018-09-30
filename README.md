@@ -1,6 +1,6 @@
 
 [![Travis (.org)](https://img.shields.io/travis/zaixi/GouYong.svg)](https://github.com/zaixi/GouYong)
-[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://github.com/zaixi/GouYong)
+[![PyPI](https://img.shields.io/pypi/v/GouYong.svg)](https://pypi.org/project/GouYong/)
 
 ## 这是一个Linux词典应用程序，目标够用就好！
 
