@@ -1,4 +1,4 @@
-#!/usr/bin/python3.5
+#!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 from gi.repository import Gdk,Gtk,GLib,GObject
 import os
@@ -15,14 +15,14 @@ from GouYong.src.cht import Cht
 from GouYong.src.translator import Translator
 import cairo
 from GouYong.src import log
+import threading
+import time
+
 logger = log.get_logger(__name__)
-WIDTH = 500
-HEIGHT = 240
-OFFLINEWIDTH = 300
-OFFLINEHEIGHT = 200
+WIDTH = 400
+HEIGHT = WIDTH * 0.618
 MOUSE_DETECT_INTERVAL = 100
-LEAVE_BORDER_WIDTH = 50
-RETRY_TIME = 5
+LEAVE_BORDER_WIDTH = WIDTH * 0.1
 
 class Popup(object):
     def __init__(self):
@@ -34,8 +34,6 @@ class Popup(object):
         self.popup.add(self.scroll)
         self.gravity=None
         self.init_ui()
-
-            # self.popup.resize(OFFLINEWIDTH,OFFLINEHEIGHT)
 
     def init_textview(self):
         self.textbuffer = Gtk.TextBuffer()
@@ -260,7 +258,12 @@ class Clip(GObject.GObject):
         center={'x':x,'y':y}
         self.check_mouse_thread_id=Gdk.threads_add_timeout(GLib.PRIORITY_DEFAULT_IDLE,MOUSE_DETECT_INTERVAL,self._check_mouse,center)
 
-def main():
+def travis_test(win, translator):
+    time.sleep(5)
+    translator.test()
+    win._on_delete_event()
+
+def main(argv = None):
     pop=Popup()
     win=MainWindow()
     dm = DictManager()
@@ -274,7 +277,14 @@ def main():
     rc=record.RecordClient(clip)
     win.rc = rc
     rc.start()
+    try:
+        if argv[1] == 'test':
+            travis_test_id = threading.Thread(target=travis_test, args=(win, translator))
+            travis_test_id.setDaemon(True)
+            travis_test_id.start()
+    except:
+        pass
     Gtk.main()
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)

@@ -9,20 +9,29 @@ import os.path
 sys.path.insert(0,os.path.join(os.path.dirname(__file__),'..',LIBDIR))
 from pystardict import Dictionary
 SUFFIX=['.oft','.gz','.dz']
-DICTDIR = os.path.join('/usr','share','GouYong','dict')
-# DICTDIR = os.path.join('../','share','GouYong','dict')
+SYSTEM_DICTDIR = os.path.join('/usr','share','GouYong','dict')
+LOCAL_DICTDIR  = os.path.join('GouYong','share','GouYong','dict')
 from GouYong.src import log
 logger = log.get_logger(__name__)
 
 class DictManager():
     def __init__(self):
         self.current_dict_name = DEFAULT
-        self.dir = DICTDIR
-        print(DICTDIR)
-        walk = os.walk(self.dir)
-        self.dicts = next(walk)[1]
-        self.dict = None
-        logger.info(self.dicts)
+        if (self.look_dict_dir(SYSTEM_DICTDIR) == False):
+            self.look_dict_dir(LOCAL_DICTDIR)
+
+    def look_dict_dir(self, dirname):
+        try:
+            logger.info(dirname)
+            walk = os.walk(dirname)
+            self.dicts = next(walk)[1]
+            self.dict = None
+            self.dir = dirname
+            logger.info(self.dicts)
+            return True
+        except:
+            print(dirname, "don't dict")
+            return False
 
     def open_dict(self):
         self.dict_dir = os.path.join(self.dir,self.current_dict_name)
