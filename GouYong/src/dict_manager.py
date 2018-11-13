@@ -17,16 +17,21 @@ logger = log.get_logger(__name__)
 class DictManager():
     def __init__(self):
         self.current_dict_name = DEFAULT
+        if (self.look_dict_dir(SYSTEM_DICTDIR) == False):
+            self.look_dict_dir(LOCAL_DICTDIR)
+
+    def look_dict_dir(self, dirname):
         try:
-            for dirname in [LOCAL_DICTDIR, SYSTEM_DICTDIR]:
-                logger.info(dirname)
-                walk = os.walk(dirname)
-                self.dicts = next(walk)[1]
-                self.dict = None
-                self.dir = dirname
-                logger.info(self.dicts)
+            logger.info(dirname)
+            walk = os.walk(dirname)
+            self.dicts = next(walk)[1]
+            self.dict = None
+            self.dir = dirname
+            logger.info(self.dicts)
+            return True
         except:
-            pass
+            print(dirname, "don't dict")
+            return False
 
     def open_dict(self):
         self.dict_dir = os.path.join(self.dir,self.current_dict_name)

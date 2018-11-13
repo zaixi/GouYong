@@ -8,7 +8,8 @@ import os.path
 import sys
 import requests
 
-VERSION = '0.4.11'
+
+VERSION = '0.5.0'
 
 def get_data_files():
     data_files=[]
@@ -37,7 +38,7 @@ if __name__=="__main__":
         install_requires = [
             'requests>=2.9.1',
             'PyStarDict>=0.8',
-            'googletrans>=2.3.0',
+            'googletrans2>=2.3.0',
             'setuptools>=40.1.0',
             'Xlib>=0.21'
         ],

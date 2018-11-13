@@ -19,13 +19,10 @@ import threading
 import time
 
 logger = log.get_logger(__name__)
-WIDTH = 500
-HEIGHT = 240
-OFFLINEWIDTH = 300
-OFFLINEHEIGHT = 200
+WIDTH = 400
+HEIGHT = WIDTH * 0.618
 MOUSE_DETECT_INTERVAL = 100
-LEAVE_BORDER_WIDTH = 50
-RETRY_TIME = 5
+LEAVE_BORDER_WIDTH = WIDTH * 0.1
 
 class Popup(object):
     def __init__(self):
@@ -37,8 +34,6 @@ class Popup(object):
         self.popup.add(self.scroll)
         self.gravity=None
         self.init_ui()
-
-            # self.popup.resize(OFFLINEWIDTH,OFFLINEHEIGHT)
 
     def init_textview(self):
         self.textbuffer = Gtk.TextBuffer()
@@ -268,7 +263,8 @@ def travis_test(win, translator):
     translator.test()
     win._on_delete_event()
 
-def main(argv):
+def main(argv = None):
+
     pop=Popup()
     win=MainWindow()
     dm = DictManager()
