@@ -8,6 +8,7 @@ import os.path
 import sys
 import requests
 
+
 VERSION = '0.5.0'
 
 def get_data_files():

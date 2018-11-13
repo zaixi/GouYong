@@ -264,6 +264,7 @@ def travis_test(win, translator):
     win._on_delete_event()
 
 def main(argv = None):
+
     pop=Popup()
     win=MainWindow()
     dm = DictManager()

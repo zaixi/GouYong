@@ -45,8 +45,8 @@ deploy:
   provider: pypi
   on:
     condition: "$DEPLOY = True"
-    branch: dev
   distributions: sdist
+
   user: liyj
   password:
     secure: ATweyBBT0WiGI59jCFcn3XOvlc5FRSuDsNmIDUpwmgs+sZkB9NAmo7HXY8EP4KDqbTpy+klkv4mdHLLkkg4+dWmMR5HDaU1Mbabp4kVkYslxukitJVQIe+MktAq7ZcbcpZ3c8PW3TzL/X/I4TCw/DGz4KxwBz0W5QZ/WsxoiEjPrrwBnWT8F+C0pY3aPZ7wSiAPMVkh2cjLAfKnRWxH2d2qX4njTxCCG3gs9zfr/bKQ3OIUR6vKGgf+XvEDuGaSZ5WJDSq+apWj+oi66lz52hQZytHbP2hvWWVvZj/v/mZRnuEpPcAhaZUtuctWh6m/ks9ergMr3ewaXkHxx0Jm0vMVueeqipYNAwXiYbbeqsUbb4yrTOE8O62+TZLhGOAVEAT+tuTEsZBdhotcPpn7uPNBjpd+AeJFYoA3dx9L6nQbzCDlVowNcR1eApjJhBqZC0jaLdPKQwjTl7MNAU/4hDm7kPfe3yMCd5eeDoB8SrYHYVr7e3vkLbp8jKXeLD2XmDVAOBBd4uqYckCG9orL/ehsHhWWW/8eHgwKwuUEyLXGfieS4haRxfrw3tnVYdwLJQIrgqmE4h5Bhq8cmVvOdih4fk2PsN5tt6XV8bhsEo/SaxXpO5DDCvnBBBGDJgAQN1U/UAEUz2OZUIn4vt+BNXbyKp1kcRZoDnnK4bo7t6Dc=
