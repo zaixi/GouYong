@@ -9,7 +9,7 @@ import sys
 import requests
 
 
-VERSION = '0.5.0'
+VERSION = '0.5.1'
 
 def get_data_files():
     data_files=[]
