@@ -1,6 +1,6 @@
 requests>=2.20.0
 PyStarDict==0.8
 googletrans==2.4.0
-setuptools==40.1.0
+setuptools==65.5.1
 Xlib==0.21
 pycairo==1.17.1
